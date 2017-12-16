@@ -6,8 +6,7 @@ import random
 import matplotlib.pyplot as plt
 import numpy as np
 import time
-#logfile = 'logfileonlyfilter.txt' #textfile where logfile is written
-#fl = open(logfile, 'w+')
+
 logfile1 = 'logfile.txt' #textfile where logfile is written
 fl2 = open(logfile1, 'w')
 carrier=193.1
@@ -24,10 +23,7 @@ for i in range(0,17):
         #Create the WSP vector Data
         print "\n************Only filter**************\n"
        
-        gap=float("{0:.3f}".format(uniform(0.013, 0.025)))
-        
-
-            
+        gap=float("{0:.3f}".format(uniform(0.013, 0.025)))    
         lfreq=carrier-gap
         ufreq=carrier+gap
         wsFreq = np.arange(lfreq, ufreq, 0.001)
@@ -64,9 +60,7 @@ for i in range(0,17):
         print "ws_load_profile rc="+ws_get_result_description(rc)
         #delete the waveshaper instance
         rc = ws_delete_waveshaper("ws054395")
-        print "ws_delete_waveshaper rc="+ws_get_result_description(rc)
-        #***************************************
-        
+        print "ws_delete_waveshaper rc="+ws_get_result_description(rc) 
         b = "type= " + str(ctype)
         fl2.write("gap=" +" "+str(gap)+" "+str(time.ctime())+" " +str(b)+"\n\n")
     
